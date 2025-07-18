@@ -15,16 +15,16 @@ app.add_middleware(
 
 @app.get("/stores")
 def get_stores():
-    db_file = r"C:\Users\taega\Documents\GitHub\Roamwise-Mall-data-\mall.db"
+    db_file = r"mall_info.db"
     if not os.path.exists(db_file):
-     
+
         return {"detail": "Database file not found", "status_code": 500}
 
     try:
         print(f"Connecting to database: {db_file}")
         conn = sqlite3.connect(db_file)
         cursor = conn.cursor()
-        cursor.execute("SELECT name, category, floor, open_times, close_times FROM stores")
+        cursor.execute("SELECT Store_Name, Category, Floor_Level, Contact_Number, Opening_Hours, Closing_Hours FROM mall")
         rows = cursor.fetchall()
         conn.close()
 
@@ -40,5 +40,5 @@ def get_stores():
         return stores
     except sqlite3.OperationalError as e:
         print(f"Error: {e}")
-      
+
         return {"detail": f"Internal Server Error: {e}", "status_code": 500}

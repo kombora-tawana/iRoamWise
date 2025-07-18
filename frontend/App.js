@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { ScrollView, Text, StyleSheet } from 'react-native';
-import StoreCard from './StoreCard';
-
+import React, { useEffect, useState } from "react";
+import { ScrollView, Text, StyleSheet } from "react-native";
+import StoreCard from "./StoreCard";
 
 const App = () => {
   const [stores, setStores] = useState([]);
@@ -11,12 +10,12 @@ const App = () => {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/stores');
-        if (!response.ok) throw new Error('Network response was not ok');
+        const response = await fetch("http://10.0.0.12:8000/stores");
+        if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         setStores(data);
       } catch (err) {
-        setError('Failed');
+        setError("Failed");
         console.error(err);
       } finally {
         setLoading(false);
