@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, Text, StyleSheet } from "react-native";
-import StoreCard from "./StoreCard";
+import StoreCard from "./components/StoreCard";
 
 const App = () => {
   const [stores, setStores] = useState([]);
