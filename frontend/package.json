@@ -4,24 +4,27 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "expo start",
+    "start": "concurrently -n FE,BE -c green,blue \"npm run frontend\" \"npm run backend\"",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "frontend": "expo start",
+    "backend": "cd ../backend && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
     "expo": "~53.0.17",
+    "expo-network": "~7.1.5",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.5",
     "react-native-network-info": "^5.2.1",
-    "react-native-web": "^0.20.0",
-    "expo-network": "~7.1.5"
+    "react-native-web": "^0.20.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "concurrently": "^9.2.0"
   },
   "private": true
 }

@@ -10,9 +10,11 @@ const App = () => {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const response = await fetch("http://10.0.0.12:8000/stores");
-        if (!response.ok) throw new Error("Network response was not ok");
+        const response = await fetch("http://10.0.0.13:8000/stores");
+        if (!response.ok)
+          throw new Error("Something is wrong with the network. I'm broken :(");
         const data = await response.json();
+        console.log("Response Data - Stores: ", data);
         setStores(data);
       } catch (err) {
         setError("Failed");

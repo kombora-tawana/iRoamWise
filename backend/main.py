@@ -15,7 +15,7 @@ app.add_middleware(
 
 @app.get("/stores")
 def get_stores():
-    db_file = r"mall_info.db"
+    db_file = r"malls.db"
     if not os.path.exists(db_file):
 
         return {"detail": "Database file not found", "status_code": 500}
