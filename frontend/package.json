@@ -4,12 +4,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently -n FE,BE -c green,blue \"npm run frontend\" \"npm run backend\"",
+    "stfe": "expo start",
+    "stbe": "cd ../backend && uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
     "android": "expo start --android",
-    "ios": "expo start --ios",
     "web": "expo start --web",
-    "frontend": "expo start",
-    "backend": "cd ../backend && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    "ios": "expo start --ios"
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
